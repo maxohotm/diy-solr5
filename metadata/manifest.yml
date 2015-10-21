@@ -1,0 +1,71 @@
+---
+Name: diy-solr
+Cartridge-Short-Name: DIY_SOLR
+Cartridge-Version: 0.0.1
+Compatible-Versions:
+- '0.0.1'
+Cartridge-Vendor: rafdegan
+Display-Name: Do-It-Yourself 0.1 SOLR
+Description: The Do-It-Yourself (DIY) application type is a blank slate for trying
+  unsupported languages, frameworks, and middleware on OpenShift. See the community
+  site for examples of bringing your favorite framework to OpenShift (SOLR).
+Version: '5.3.1'
+License: "Apache License, Version 2.0"
+License-Url: http://www.apache.org/licenses/
+Vendor: ASF
+Categories:
+- web_framework
+- experimental
+Website: 
+Help-Topics:
+  Getting Started: https://www.openshift.com/videos/getting-started-with-diy-applications-on-openshift
+Provides:
+- diy-solr-0.1
+Publishes: 
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+Scaling:
+  Min: 1
+  Max: 1
+Group-Overrides:
+- components:
+  - web-proxy
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: PORT
+  Private-Port: 8983
+  Public-Port-Name: PROXY_PORT
+  Protocols:
+  - http
+  - ws
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options:
+      websocket: true
+  - Frontend: /health
+    Backend: ''
+    Options:
+      health: true
+#- Private-IP-Name: MIP
+#  Private-Port-Name: MPORT
+#  Private-Port: 32000
+#  Public-Port-Name: MPROXY_PORT
+#  Protocols:
+#  - http
+#  - ws
+#  - https
+#  - wss
+#  - tls
+#  Mappings:
+#  - Frontend: ''
+#    Backend: ''
+#    Options:
+#      websocket: true
+Source-Url: https://github.com/maxohotm/diy-solr.git
+
+#git://github.com/chrisk/fakeweb.git

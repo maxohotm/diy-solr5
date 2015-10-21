@@ -1,0 +1,66 @@
+#!/bin/bash
+source $OPENSHIFT_CARTRIDGE_SDK_BASH
+#source ${OPENSHIFT_DIY_SOLR_DIR}/bin/solr
+
+function run_hook() {
+  local path="$OPENSHIFT_REPO_DIR/.openshift/action_hooks/$1"
+  if [ -f "$path" -a -x "$path" ]
+  then
+    "$path"
+  else
+    return 0
+  fi
+}
+
+function start() {
+    echo "Starting DIY cartridge"
+    run_hook start
+
+#${OPENSHIFT_DIY_SOLR_DIR}/bin/solr start -p 8984
+}
+
+function stop() {
+    echo "Stopping DIY cartridge"
+    run_hook stop
+    
+#${OPENSHIFT_DIY_SOLR_DIR}/bin/solr stop -p 8984
+}
+
+function restart() {
+    stop
+    start
+    
+#${OPENSHIFT_DIY_SOLR_DIR}/bin/solr restart -p 8984
+}
+
+function status() {
+   if output=$(curl http://$OPENSHIFT_DIY_SOLR_IP:$OPENSHIFT_IY_SOLRE_PORT 2>&1 )
+   then
+      client_result "Application is running"
+   else
+      client_result "Application is either stopped or inaccessible"
+   fi
+   
+#${OPENSHIFT_DIY_SOLR_DIR}/bin/solr status
+}
+
+function reload() {
+    client_result "Reloading DIY cart"
+    restart
+}
+
+function tidy() {
+  client_message "Emptying diy logs in dir: $OPENSHIFT_LOG_DIR"
+  shopt -s dotglob
+  rm -rf $OPENSHIFT_LOG_DIR/diy.log*
+}
+
+case "$1" in
+  start)     start ;;
+  stop)      stop ;;
+  restart)   restart ;;
+  status)    status ;;
+  reload)    reload ;;
+  tidy)      tidy ;;
+  *)         exit 0
+esac
