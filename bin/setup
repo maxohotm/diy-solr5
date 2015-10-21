@@ -24,7 +24,7 @@ set_env_var 'JAVA_HOME' '${JAVA_HOME}' $env_dir
  
 client_result "install ant"
 cp ${OPENSHIFT_DIY_SOLR_DIR}apache-ant-1.9.6-bin.tar.gz ${OPENSHIFT_DATA_DIR}
-tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz
+tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz -C ${OPENSHIFT_DATA_DIR}
 rm apache-ant-1.9.6-bin.tar.gz
 set_env_var 'ANT_HOME' '${ANT_HOME}' $env_dir
 
@@ -42,7 +42,7 @@ reinstall_path
 
 client_result "install solr"
 cp ${OPENSHIFT_DIY_SOLR_DIR}solr-5.3.1-src.tgz ${OPENSHIFT_DATA_DIR}
-tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz
+tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz -C ${OPENSHIFT_DATA_DIR}
 rm solr-5.3.1-src.tgz
 
 
