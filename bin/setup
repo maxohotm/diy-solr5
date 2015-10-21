@@ -7,6 +7,8 @@ case "$1" in
     version="$2"
 esac
 
+shopt -s dotglob
+
 client_result "setup"
 
 client_result "set env JAVA_HOME"
@@ -14,7 +16,7 @@ env_dir="${OPENSHIFT_DIY_SOLR_DIR}/env"
 set_env_var 'JAVA_HOME' '/etc/alternatives/java_sdk_1.7.0' $env_dir
 
  
-client_result "$(ant -version)"
+#client_result "$(ant -version)"
 #client_result "${OPENSHIFT_REPO_DIR}"
 #client_result "${OPENSHIFT_REPO_DIR}"
 
