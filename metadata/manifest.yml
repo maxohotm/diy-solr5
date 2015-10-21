@@ -66,6 +66,6 @@ Endpoints:
 #    Backend: ''
 #    Options:
 #      websocket: true
-Source-Url: https://github.com/maxohotm/diy-solr.git
+Source-Url: https://github.com/maxohotm/diy-solr5.git
 
 #git://github.com/chrisk/fakeweb.git
