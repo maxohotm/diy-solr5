@@ -10,8 +10,6 @@ esac
 shopt -s dotglob
 
 
-
-
 client_result "setup"
 
 # Create additional directories required by the diy cartridge
