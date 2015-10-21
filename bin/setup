@@ -9,6 +9,9 @@ esac
 
 shopt -s dotglob
 
+env_dir="${OPENSHIFT_DIY_SOLR_DIR}/env"
+JAVA_HOME=/etc/alternatives/java_sdk_1.7.0
+ANT_HOME=${OPENSHIFT_DATA_DIR}apache-ant-1.9.6
 
 client_result "setup"
 
@@ -16,8 +19,7 @@ client_result "setup"
 #mkdir -p ${OPENSHIFT_DIY_SOLR_DIR}run
 
 client_result "set env JAVA_HOME"
-env_dir="${OPENSHIFT_DIY_SOLR_DIR}/env"
-set_env_var 'JAVA_HOME' '/etc/alternatives/java_sdk_1.7.0' $env_dir
+set_env_var 'JAVA_HOME' '${JAVA_HOME}' $env_dir
 
  
 #client_result "$(ant -version)"
@@ -25,11 +27,11 @@ client_result "install ant"
 cp ${OPENSHIFT_DIY_SOLR_DIR}apache-ant-1.9.6-bin.tar.gz ${OPENSHIFT_DATA_DIR}
 tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz -C ${OPENSHIFT_DATA_DIR}
 rm apache-ant-1.9.6-bin.tar.gz
-set_env_var 'ANT_HOME' '${OPENSHIFT_DATA_DIR}apache-ant-1.9.6' $env_dir
+set_env_var 'ANT_HOME' '${ANT_HOME}' $env_dir
 
 ########################
 function reinstall_path {
-  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
+  #echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
   echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
 }
 reinstall_path
