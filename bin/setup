@@ -11,26 +11,41 @@ shopt -s dotglob
 
 client_result "setup"
 
+# Create additional directories required by the diy cartridge
+#mkdir -p ${OPENSHIFT_DIY_SOLR_DIR}run
+
 client_result "set env JAVA_HOME"
 env_dir="${OPENSHIFT_DIY_SOLR_DIR}/env"
 set_env_var 'JAVA_HOME' '/etc/alternatives/java_sdk_1.7.0' $env_dir
 
  
 #client_result "$(ant -version)"
-client_result "$(ls  ${OPENSHIFT_REPO_DIR})"
+client_result "install ant"
+cp ${OPENSHIFT_DIY_SOLR_DIR}apache-ant-1.9.6-bin.tar.gz ${OPENSHIFT_DATA_DIR}
+tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz -C ${OPENSHIFT_DATA_DIR}
+rm apache-ant-1.9.6-bin.tar.gz
+set_env_var 'ANT_HOME' '${OPENSHIFT_DATA_DIR}apache-ant-1.9.6' $env_dir
 
-# Create additional directories required by the diy cartridge
-mkdir -p ${OPENSHIFT_DIY_SOLR_DIR}run
+reinstall_path
 
-#client_result "download apache solr"
-#$(wget ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz)"
+
+#client_result "$(ls  ${OPENSHIFT_REPO_DIR})"
+
+#not
+#client_result "download apache solr" 
 #curl -O ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz
 #wget ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz
 
+client_result "install solr"
 cp ${OPENSHIFT_DIY_SOLR_DIR}solr-5.3.1-src.tgz ${OPENSHIFT_DATA_DIR}
-
-client_result "extract"
 tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz -C ${OPENSHIFT_DATA_DIR}
 rm solr-5.3.1-src.tgz
 
 client_result "Disclaimer: This is an experimental cartridge."
+
+
+########################
+function reinstall_path {
+  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
+  echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
+}
