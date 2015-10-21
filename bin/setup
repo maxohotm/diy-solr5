@@ -9,11 +9,7 @@ esac
 
 shopt -s dotglob
 
-########################
-function reinstall_path {
-  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
-  echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
-}
+
 
 
 client_result "setup"
@@ -33,6 +29,11 @@ tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz -C ${OPENSHIFT_DATA_D
 rm apache-ant-1.9.6-bin.tar.gz
 set_env_var 'ANT_HOME' '${OPENSHIFT_DATA_DIR}apache-ant-1.9.6' $env_dir
 
+########################
+function reinstall_path {
+  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
+  echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
+}
 reinstall_path
 
 
