@@ -9,6 +9,13 @@ esac
 
 shopt -s dotglob
 
+########################
+function reinstall_path {
+  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
+  echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
+}
+
+
 client_result "setup"
 
 # Create additional directories required by the diy cartridge
@@ -44,8 +51,4 @@ rm solr-5.3.1-src.tgz
 client_result "Disclaimer: This is an experimental cartridge."
 
 
-########################
-function reinstall_path {
-  echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
-  echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
-}
+
