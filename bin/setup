@@ -27,10 +27,10 @@ client_result "$(ls  ${OPENSHIFT_REPO_DIR})"
 #curl -O ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz
 #wget ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz
 
-cp ${$OPENSHIFT_REPO_DIR}solr-5.3.1.tgz ${OPENSHIFT_DATA_DIR}
+cp ${$OPENSHIFT_REPO_DIR}solr-5.3.1-src.tgz ${OPENSHIFT_DATA_DIR}
 
 client_result "extract"
-tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz -C ${OPENSHIFT_DATA_DIR}
-rm solr-5.3.1.tgz
+tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz -C ${OPENSHIFT_DATA_DIR}
+rm solr-5.3.1-src.tgz
 
 client_result "Disclaimer: This is an experimental cartridge."
