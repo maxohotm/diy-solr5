@@ -20,7 +20,7 @@ set_env_var 'JAVA_HOME' '/etc/alternatives/java_sdk_1.7.0' $env_dir
 client_result "$(ls  ${OPENSHIFT_REPO_DIR})"
 
 # Create additional directories required by the diy cartridge
-#mkdir -p ${OPENSHIFT_DIY_SOLR_DIR}run
+mkdir -p ${OPENSHIFT_DIY_SOLR_DIR}run
 
 #client_result "download apache solr"
 #$(wget ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz)"
