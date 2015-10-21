@@ -46,7 +46,7 @@ tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz
 rm solr-5.3.1-src.tgz
 
 
-cd ${OPENSHIFT_DATA_DIR}solr-5.3.1-src
+cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
 ant -version
 ant compile
 ant test
