@@ -33,10 +33,10 @@ set_env_var 'ANT_HOME' '${ANT_HOME}' $env_dir
 set_env_var 'OPENSHIFT_DIY_SOLR_PATH_ELEMENT' '${OPENSHIFT_DIY_SOLR_PATH_ELEMENT}:${JAVA_HOME}/bin:${ANT_HOME}/bin' $env_dir
 
 ########################
-function reinstall_path {
+#function reinstall_path {
   #echo $JAVA_HOME > $OPENSHIFT_DIY_SOLR_DIR/env/JAVA_HOME
   #echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
-}
+#}
 #reinstall_path
 
 #not
