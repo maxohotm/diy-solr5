@@ -47,4 +47,4 @@ set_env_var 'OPENSHIFT_DIY_SOLR_PATH_ELEMENT' ${JAVA_HOME}/bin:${ANT_HOME}/bin $
 #client_error "ant"
 # if enable_out=$(${OPENSHIFT_JENKINS_CLIENT_DIR}/bin/jenkins_job_action enable 2>&1)
 
-client_result "Disclaimer: This is an experimental cartridge."
+client_result ""
