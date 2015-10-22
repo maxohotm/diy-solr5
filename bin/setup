@@ -54,9 +54,9 @@ rm solr-5.3.1-src.tgz
 
 
 cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
-ant -version
-ant compile
-ant test
+#ant -version
+#ant compile
+#ant test
 
 
 
