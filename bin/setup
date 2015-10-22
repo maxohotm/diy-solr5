@@ -27,6 +27,7 @@ cp ${OPENSHIFT_DIY_SOLR_DIR}apache-ant-1.9.6-bin.tar.gz ${OPENSHIFT_DATA_DIR}
 tar -xvzf ${OPENSHIFT_DATA_DIR}apache-ant-1.9.6-bin.tar.gz -C ${OPENSHIFT_DATA_DIR}
 rm apache-ant-1.9.6-bin.tar.gz
 cp ${OPENSHIFT_DIY_SOLR_DIR}ivy-2.4.0.jar ${ANT_HOME}/lib
+
 set_env_var 'ANT_HOME' ${ANT_HOME} $env_dir
 
 #OPENSHIFT_DIY_SOLR_PATH_ELEMENT
@@ -40,14 +41,6 @@ set_env_var 'OPENSHIFT_DIY_SOLR_PATH_ELEMENT' ${JAVA_HOME}/bin:${ANT_HOME}/bin $
   #echo "$JAVA_HOME/bin:$ANT_HOME/bin" > $OPENSHIFT_DIY_SOLR_DIR/env/OPENSHIFT_DIY_SOLR_PATH_ELEMENT
 #}
 #reinstall_path
-
-
-
-
-
-
-
-
 
 
 #client_result "$(ant -version)"
