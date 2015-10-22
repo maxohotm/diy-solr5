@@ -9,7 +9,7 @@ esac
 
 shopt -s dotglob
 
-client_result "install"
+client_result "script install"
 
 #add_domain_env_var "JENKINS_URL=https://${OPENSHIFT_GEAR_DNS}/"
 #add path
