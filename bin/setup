@@ -53,7 +53,7 @@ client_result "install solr"
 
 
 #cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
-#ant -version
+ant -version
 #ant compile
 #ant test
 
