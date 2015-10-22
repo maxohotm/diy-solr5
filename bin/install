@@ -11,5 +11,10 @@ shopt -s dotglob
 
 client_result "script install"
 
+cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
+ant -version
+ant compile
+ant test
+
 #add_domain_env_var "JENKINS_URL=https://${OPENSHIFT_GEAR_DNS}/"
 #add path
