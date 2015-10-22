@@ -48,15 +48,15 @@ set_env_var 'OPENSHIFT_DIY_SOLR_PATH_ELEMENT' ${JAVA_HOME}/bin:${ANT_HOME}/bin $
 #wget ${OPENSHIFT_DATA_DIR}solr-5.3.1.tgz http://apache.panu.it/lucene/solr/5.3.1/solr-5.3.1.tgz
 
 client_result "install solr"
-cp ${OPENSHIFT_DIY_SOLR_DIR}solr-5.3.1-src.tgz ${OPENSHIFT_DATA_DIR}
-tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz -C ${OPENSHIFT_DATA_DIR}
-rm solr-5.3.1-src.tgz
+#cp ${OPENSHIFT_DIY_SOLR_DIR}solr-5.3.1-src.tgz ${OPENSHIFT_DATA_DIR}
+#tar -xvzf ${OPENSHIFT_DATA_DIR}solr-5.3.1-src.tgz -C ${OPENSHIFT_DATA_DIR}
+#rm solr-5.3.1-src.tgz
 
 
-cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
+#cd ${OPENSHIFT_DATA_DIR}solr-5.3.1
 ant -version
-ant compile
-ant test
+#ant compile
+#ant test
 
 
 
