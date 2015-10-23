@@ -26,8 +26,6 @@ client_result "script install"
 #ant compile
 #ant test
 
-
-
 #.bash_profile and .bash_history are available on all OpenShift gears. They are located in ~/app-root/data/ and are r/w.
 #default $TMOUT 300
 
