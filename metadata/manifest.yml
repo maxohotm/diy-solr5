@@ -39,6 +39,7 @@ Endpoints:
   Public-Port-Name: PROXY_PORT
   Protocols:
   - http
+  - https
   - ws
   Options:
     primary: true
